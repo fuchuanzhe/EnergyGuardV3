@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="EnergyGuardWidget.Widget1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:EnergyGuardWidget"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+
+    <Grid>
+       <Grid x:Name="BackgroundGrid"/>
+        
+       <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Cost This Week:" VerticalAlignment="Center"/>
+                <TextBlock x:Name="CostTextBox" AutomationProperties.Name="Cost" Text="{x:Bind ViewModel.CostThisWeek, Mode=OneWay}" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Cost Saved:" VerticalAlignment="Center"/>
+                <TextBlock x:Name="CostSavedTextBox" AutomationProperties.Name="CostSaved" Text="{x:Bind ViewModel.CostSaved, Mode=OneWay}" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Carbon Intensity:" VerticalAlignment="Center"/>
+                <TextBlock x:Name="CarbonIntensityTextBox" AutomationProperties.Name="CarbonIntensity" Text="{x:Bind CarbonInfo.CarbonIntensity, Mode=OneWay}" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Carbon Index:" VerticalAlignment="Center"/>
+                <TextBlock x:Name="CarbonIndexTextBox" AutomationProperties.Name="IntensityIndex" Text="{x:Bind CarbonInfo.IntensityIndex, Mode=OneWay}" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+           
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Adjust Opacity:" VerticalAlignment="Center"/>
+                <Slider x:Name="OpacitySlider" AutomationProperties.Name="Opacity Slider" Minimum="0" Maximum="100" ValueChanged="OpacitySliderValueChanged" VerticalAlignment="Center" Margin="10" Width="300"/>
+            </StackPanel>
+           
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Adjust Power Usage:" VerticalAlignment="Center"/>
+                <Slider x:Name="PowerUsageSlider" AutomationProperties.Name="Power Usage Slider" Value="{Binding PowerUsage}" Minimum="0" Maximum="50" StepFrequency="10" VerticalAlignment="Center" Margin="10" Width="300"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>
