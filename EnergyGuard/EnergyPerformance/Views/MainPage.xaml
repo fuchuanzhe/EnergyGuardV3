@@ -1,0 +1,123 @@
+<Page
+    x:Class="EnergyPerformance.Views.MainPage"
+    xmlns:viewmodel="using:EnergyPerformance.ViewModels"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:EnergyPerformance.Helpers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
+    d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <helpers:PercentToColourConverter x:Key="PercentToColourConverter" />
+        <helpers:DoubleToStringConverter x:Key="DoubleToStringConverter" />
+        <helpers:FloatToStringConverter x:Key="FloatToStringConverter" />
+        <helpers:CostStringConverter x:Key="CostStringConverter" />
+        <helpers:BudgetStringConverter x:Key="BudgetStringConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="HomePowerUseTitle" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <TextBlock Style="{StaticResource DisplayTextBlockStyle}" HorizontalAlignment="Center" Margin="0 20 0 0" VerticalAlignment="Stretch">
+                <Run Text="{x:Bind ViewModel.Power,Mode=OneWay, Converter={StaticResource DoubleToStringConverter}}"/>
+                <Run x:Uid="PowerUnit"/>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="DailyCarbonEmission" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <TextBlock Style="{StaticResource DisplayTextBlockStyle}" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <Run Text="{x:Bind ViewModel.DailyCarbonEmission,Mode=OneWay, Converter={StaticResource DoubleToStringConverter}}"/>
+                <Run x:Uid="Grams"/>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="PerformanceLabel" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <StackPanel Width="410" Height="400" Orientation="Vertical">
+                <Grid Margin="20, 15, 0, 15" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <ProgressRing HorizontalAlignment="Center" Background="Gray" Width="175" Height="175" Value="{x:Bind ViewModel.CpuUsage,Mode=OneWay}" IsIndeterminate="False" Foreground="{x:Bind ViewModel.CpuUsage, Converter={StaticResource PercentToColourConverter}, Mode=OneWay}"/>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TitleLargeTextBlockStyle}">
+                    <Run Text="{x:Bind ViewModel.CpuUsage, Mode=OneWay}"/>
+                    <Run x:Uid="PercentSymbol"/>
+                        </TextBlock>
+                        <TextBlock x:Uid="HomeCpuUsageProgressRingLabel"  FontSize="20" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="15, 0, 0, 5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <ProgressRing Background="Gray" HorizontalAlignment="Center" Width="175" Height="175" Value="{x:Bind ViewModel.GpuUsage,Mode=OneWay}" IsIndeterminate="False" Foreground="{x:Bind ViewModel.GpuUsage, Converter={StaticResource PercentToColourConverter}, Mode=OneWay}"/>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center"  HorizontalAlignment="Center" Style="{StaticResource TitleLargeTextBlockStyle}">
+                    <Run Text="{x:Bind ViewModel.GpuUsage, Mode=OneWay}" />
+                    <Run x:Uid="PercentSymbol"/>
+                        </TextBlock>
+                        <TextBlock x:Uid="HomeGpuUsageProgressRingLabel"  FontSize="20" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="TotalEnergyUsage" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <TextBlock Style="{StaticResource DisplayTextBlockStyle}" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <Run Text="{x:Bind ViewModel.AccumulatedWatts,Mode=OneWay, Converter={StaticResource DoubleToStringConverter}}"/>
+                <Run x:Uid="Joules"/>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="TimeToAbsorbEmission" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <TextBlock Style="{StaticResource DisplayTextBlockStyle}" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <Run Text="{x:Bind ViewModel.TimeToAbsorbEmission,Mode=OneWay, Converter={StaticResource DoubleToStringConverter}}"/>
+                <Run x:Uid="Hours"/>
+            </TextBlock>
+            <TextBlock x:Uid="TreesToHours" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" Margin="0 0 0 15"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="WeeklyBudgetSpent" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <StackPanel Width="600" Height="230" Orientation="Horizontal" HorizontalAlignment="Center">
+                <ProgressBar Background="Black" Margin="0, 25" Width="350" MinHeight="10" Value="{x:Bind ViewModel.BudgetUsedPercent, Mode=OneWay}" IsIndeterminate="False" Foreground="{x:Bind ViewModel.BudgetUsedPercent, Converter={StaticResource PercentToColourConverter}, Mode=OneWay}"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="23" Margin="20, 0, 0, 10">
+                    <Run Text="{x:Bind ViewModel.BudgetUsedPercent, Converter={StaticResource BudgetStringConverter}, Mode=OneWay}"/>
+                    <Run x:Uid="PercentSymbol"/>
+                    <Run x:Uid="BudgetProgressBarLabel"/>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="CostSaved" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <TextBlock Style="{StaticResource DisplayTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 50 0 0">
+                <Run x:Uid="CurrencySymbol"/>
+                <Run Text="{x:Bind ViewModel.CostSaved,Mode=OneWay, Converter={StaticResource DoubleToStringConverter}}"/>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Background="White" Margin="10" CornerRadius="15">
+            <TextBlock x:Uid="CostThisWeek" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
+            <TextBlock Style="{StaticResource DisplayTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 50 0 0">
+                <Run x:Uid="CurrencySymbol"/>
+                <Run Text="{x:Bind ViewModel.CostThisWeek,Mode=OneWay, Converter={StaticResource FloatToStringConverter}}"/>
+            </TextBlock>
+        </StackPanel>
+
+    </Grid>
+</Page>

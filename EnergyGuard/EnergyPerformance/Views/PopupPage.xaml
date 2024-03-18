@@ -1,0 +1,52 @@
+<Page
+    x:Class="EnergyPerformance.Views.PopupPage"
+    xmlns:viewmodel="using:EnergyPerformance.ViewModels"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EnergyPerformance.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winUi="using:CommunityToolkit.Labs.WinUI"
+    d:DataContext="{d:DesignInstance Type=viewmodel:PopupViewModel}"
+    mc:Ignorable="d">
+
+    <GridView x:Name="ContentArea" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectionMode="None" Height="Auto" Background="LightSteelBlue">
+
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Assets/WindowIcon.ico" HorizontalAlignment="Left" Width="80" Height="80" Margin="50,50,20, 0" />
+                <TextBlock x:Uid="PopUpPage2" Style="{StaticResource TitleLargeTextBlockStyle}" Foreground="Green" Margin="20 60 20 0"></TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock x:Uid="PopUpPage1" Style="{StaticResource SubtitleTextBlockStyle}"
+                    Margin="70 60 20 0">
+                </TextBlock>
+
+            </StackPanel>
+
+            <ComboBox x:Name="OptionComboBox" PlaceholderText="Enter your energy provider here" Header="1. What energy provider do you use?" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="70,40,0,0" Width="700" ItemsSource="{x:Bind ViewModel.CompanyList, Mode=OneWay}" SelectedItem="{x:Bind ViewModel.SelectedCompany, Mode=TwoWay}">
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="Foreground" Value="Black"></Setter>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+
+            <NumberBox x:Name="BillField" Header="2. What is your energy bill rate in kWh?" PlaceholderText="Enter your bill rate here" Margin="70, 40, 0, 0" HorizontalContentAlignment="Center" FontSize="28" Width="700" VerticalAlignment="Bottom" HorizontalAlignment="Center" Value="{x:Bind ViewModel.RateValue, Mode=TwoWay}" Background="LightGreen">
+                <NumberBox.Style>
+                    <Style TargetType="NumberBox">
+                        <Setter Property="Background" Value="LightGreen"></Setter>
+                    </Style>
+                </NumberBox.Style>
+            </NumberBox>
+
+            <TextBlock x:Name="ErrorText" Text="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="18" Margin="0 0 0 30"/>
+
+            <Button Content="Continue" FontSize="24" Margin="0 0 0 0" Padding="30 10 30 20" Command="{x:Bind ViewModel.ValidateAndUpdateInputCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="White"></Button>
+
+        </StackPanel>
+
+    </GridView>
+</Page>

@@ -1,0 +1,52 @@
+{
+    "energy_distributors": [
+        {
+            "name": "BRITISH GAS",
+            "perks": {
+                "night_rate": 0.41
+            }
+        },
+        {
+            "name": "EDF ENERGY",
+            "perks": {
+                "night_rate": 0.46
+            }
+        },
+        {
+            "name": "EON ENERGY",
+            "perks": {
+                "night_rate": 0.41
+            }
+        },
+        {
+            "name": "OCTOPUS ENERGY",
+            "perks": {
+                "night_rate": 0.43
+            }
+        },
+        {
+            "name": "OVO",
+            "perks": {
+                "night_rate": 0.67
+            }
+        },
+        {
+            "name": "SCOTTISH POWER",
+            "perks": {
+                "night_rate": 0.50
+            }
+        },
+        {
+            "name": "SHELL ENERGY",
+            "perks": {
+                "night_rate": 0.43
+            }
+        },
+        {
+            "name": "OTHER",
+            "perks": {
+                "night_rate": 0.45
+            }
+        }
+    ]
+}
