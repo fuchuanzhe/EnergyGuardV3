@@ -1,6 +1,6 @@
 # **EnergyGuard Version 3**
 
-Empowering Efficiency, Shaping Sustainability
+**Empowering Efficiency, Shaping Sustainability**
 
 ## <u>Latest Features in EnergyGuard Version 3</u> 
 
@@ -16,11 +16,11 @@ Empowering Efficiency, Shaping Sustainability
 ## <u>Run EnergyGuard</u>
 
 1. Clone the repository.
-2. Select EnergyGuard.
-3. Follow the instructions in the README.md file.
+2. Select **EnergyGuard**.
+3. Follow the instructions in the **README.md** file.
 
 ## <u>Run EnergyGuard Widget</u>
 
 1. If the repository is not cloned, clone the repository.
-2. Select EnergyGuardWidget.
-3. Follow the instructions in the README.md file.
+2. Select **EnergyGuardWidget**.
+3. Follow the instructions in the **README.md** file.
