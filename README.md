@@ -24,3 +24,5 @@
 1. If the repository is not cloned, clone the repository.
 2. Open **EnergyGuardWidget**.
 3. Follow the instructions in the **README.md** file.
+
+Project group code: **ENERGY1-2023**
