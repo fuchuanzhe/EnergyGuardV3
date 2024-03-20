@@ -61,3 +61,6 @@ For a more detailed guidance, please follow [Microsoft Store developer guidance]
 7. Open the solution in Visual Studio, select Package &rarr; Publish &rarr; Create App Package.
 8. To distribute the app to the Microsoft Store, select Microsoft Store under a new app name and follow the instructions displayed.
 9. Upload the packages to the store.
+
+
+Project group code: **ENERGY1-2023**
