@@ -82,7 +82,7 @@ public class GpuTrackerService : BackgroundService
 
         if (gpu != null)
         {
-            GpuUsage = Math.Round(gpu.Value ?? lastUsage, GpuUsageDoublePrecision);
+            GpuUsage = Math.Min(Math.Round(gpu.Value ?? lastUsage, GpuUsageDoublePrecision),100.00);
         }
         else
         {

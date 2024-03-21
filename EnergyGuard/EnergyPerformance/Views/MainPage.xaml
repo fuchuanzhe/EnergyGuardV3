@@ -12,6 +12,7 @@
     <Page.Resources>
         <helpers:PercentToColourConverter x:Key="PercentToColourConverter" />
         <helpers:DoubleToStringConverter x:Key="DoubleToStringConverter" />
+        <helpers:DoubleToDecimalStringConverter x:Key="DoubleToDecimalStringConverter" />
         <helpers:FloatToStringConverter x:Key="FloatToStringConverter" />
         <helpers:CostStringConverter x:Key="CostStringConverter" />
         <helpers:BudgetStringConverter x:Key="BudgetStringConverter" />
@@ -107,7 +108,7 @@
             <TextBlock x:Uid="CostSaved" Style="{StaticResource TitleTextBlockStyle}" Foreground="Green" Margin="10 10 0 0"/>
             <TextBlock Style="{StaticResource DisplayTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 50 0 0">
                 <Run x:Uid="CurrencySymbol"/>
-                <Run Text="{x:Bind ViewModel.CostSaved,Mode=OneWay, Converter={StaticResource DoubleToStringConverter}}"/>
+                <Run Text="{x:Bind ViewModel.CostSaved,Mode=OneWay, Converter={StaticResource DoubleToDecimalStringConverter}}"/>
             </TextBlock>
         </StackPanel>
 
