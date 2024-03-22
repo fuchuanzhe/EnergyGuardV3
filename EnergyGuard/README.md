@@ -82,6 +82,8 @@ From the toolbar, Open Tools &rarr; Nuget Package Manager &rarr; Package Manager
 5. Building the project for the first time may take a while, as Visual Studio will download and install all NuGet packages required for the application. On future runs, deployment will be much faster.
 6. After the project is built, the app will start. To exit the app, either press the *Stop* button in Visual Studio (if started with debugging) or right click on the new icon in the taskbar tray for EnergyGuard, and press **Exit**.
 
+**Note: If building/executing the solution fails, in the tool bar, Select Build &rarr; Clean Solution. Then build the solution again using Build &rarr; Build Solution.**
+
 ## <u>Debugging the App</u>
 
 The project is configured so that it asks for admin rights access during startup. Unfortunately, Visual Studio 2022 does not show any debugging output when the project is configured this way, which can make the development process difficult. As a workaround, the admin rights can be disabled and most things can be debugged normally. To disable admin rights:
