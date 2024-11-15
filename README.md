@@ -7,6 +7,8 @@ Designed with sustainability in mind, EnergyGuard Version 3 empowers users to mo
 
 The success of EnergyGuard Version 3 is showcased through its customisable widgets, comprehensive documentation, and intuitive user interface. By catering to the needs of both end-users and developers, the software maximises its reach and effectiveness. Through real-time data reporting and energy-saving settings, EnergyGuard Version 3 not only helps individuals cut costs but also plays a crucial role in the collective fight against climate change. As a transformative force for good, EnergyGuard Version 3 leads the charge towards a greener, more sustainable future.
 
+![Main user interface](./EnergyGuard/docs/images/UI.png)
+
 ## <u>Latest Features in EnergyGuard Version 3</u> 
 
 1. Smart Billing Rates
